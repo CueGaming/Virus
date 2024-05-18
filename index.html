@@ -105,7 +105,7 @@
 
     <div id="loading-bar">
         <progress id="progress-bar" value="0" max="100"></progress>
-        <div id="loading-text">Initializing and Removing Virus...</div>
+        <div id="loading-text">Initializing and Searching for Virus...</div>
     </div>
 
     <div id="terminal"></div>
@@ -128,19 +128,45 @@
             setTimeout(function() {
                 document.getElementById('loading-bar').style.display = 'none';
                 document.getElementById('terminal').style.display = 'block';
-                document.getElementById('terminal').textContent = 'Initializing...\nRemoving Virus...';
+                document.getElementById('terminal').textContent = 'Initializing...\nSearching for Virus...\n';
+                // Simulate file search
                 setTimeout(function() {
-                    document.getElementById('terminal').textContent += '\nVirus Removed Successfully!';
-                    document.getElementById('fake-ads').style.display = 'block';
-                    document.getElementById('virus-result').style.display = 'block';
-                    document.getElementById('virus-result').textContent = 'Virus Detected';
-                    document.getElementById('retry-button').style.display = 'block';
-                }, 30000); // 30 seconds loading time
+                    document.getElementById('terminal').textContent += 'Searching in Downloads... Found suspicious file.\n';
+                    setTimeout(function() {
+                        document.getElementById('terminal').textContent += 'Searching in Documents... Found encrypted file.\n';
+                        setTimeout(function() {
+                            document.getElementById('terminal').textContent += 'Searching in System files... Virus detected.\n';
+                            setTimeout(function() {
+                                // Introduce a chance for unsuccessful removal
+                                var success = Math.random() < 0.8; // 80% success rate
+                                if (success) {
+                                    document.getElementById('terminal').textContent += 'Removing Virus...';
+                                    setTimeout(function() {
+                                        document.getElementById('terminal').textContent += '\nVirus Removed Successfully!';
+                                        document.getElementById('fake-ads').style.display = 'block';
+                                        document.getElementById('virus-result').style.display = 'block';
+                                        document.getElementById('virus-result').textContent = 'Virus Removed Successfully';
+                                        document.getElementById('retry-button').style.display = 'block';
+                                    }, 5000); // 5 seconds for virus removal
+                                } else {
+                                    document.getElementById('terminal').textContent += 'Removing Virus...';
+                                    setTimeout(function() {
+                                        document.getElementById('terminal').textContent += '\nVirus Removal Unsuccessful!';
+                                        document.getElementById('fake-ads').style.display = 'block';
+                                        document.getElementById('virus-result').style.display = 'block';
+                                        document.getElementById('virus-result').textContent = 'Virus Removal Unsuccessful';
+                                        document.getElementById('retry-button').style.display = 'block';
+                                    }, 5000); // 5 seconds for unsuccessful removal
+                                }
+                            }, 2000); // 2 seconds for searching system files
+                        }, 1500); // 1.5 seconds for searching documents
+                    }, 1000); // 1 second for searching downloads
+                }, 2000); // 2 seconds initial delay
             }, 1000); // 1 second delay before starting loading
         }
 
         function navigateToCueGaming69() {
-            window.location.href = 'https://www.youtube.com/CueGaming69';
+            window.location.href = 'https://www.youtube.com/channel/UCu12QeKhPgfAKnYvz72s_mQ';
         }
 
         function restartPrank() {
@@ -152,11 +178,12 @@
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById('ip-address').textContent += ' ' + data.ip;
-                })
-                .catch(error => {
-                    console.error('Error fetching IP:', error);
-                });
-        });
-    </script>
+               
+            })
+            .catch(error => {
+                console.error('Error fetching IP:', error);
+            });
+    });
+</script>
 </body>
 </html>
