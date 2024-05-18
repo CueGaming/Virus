@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Play</title>
+    <script>
+        function playGame() {
+            var gameWindow = window.open('https://nzp.gay/', '_self');
+            if (gameWindow) {
+                gameWindow.focus();
+            }
+        }
+
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="playGame()">Play</button>
+    <button onclick="toggleFullscreen()">Fullscreen</button>
+</body>
+</html>
