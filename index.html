@@ -92,34 +92,6 @@
             background-color: #a30000;
         }
     </style>
-</head>
-<body>
-    <h1>WARNING: Critical Virus Detected!</h1>
-    <p>Your Chromebook has been infected with a critical virus!</p>
-    <p>This virus may steal your personal data, photos, and passwords.</p>
-    <p>Your browsing activity is being monitored!</p>
-    <p>Immediate action is required to prevent further damage.</p>
-    <p>Click the button below to begin virus removal:</p>
-    <div id="remove-button" class="button" onclick="removeVirus()">Remove Virus Now</div>
-    <div id="ip-address">Your IP Address: <!-- JavaScript will insert IP here --></div>
-
-    <div id="loading-bar">
-        <progress id="progress-bar" value="0" max="100"></progress>
-        <div id="loading-text">Initializing and Searching for Virus...</div>
-    </div>
-
-    <div id="terminal"></div>
-
-    <div id="fake-ads">
-        <div class="ad" onclick="navigateToCueGaming69()">Click Here for Free Antivirus!</div>
-        <div class="ad" onclick="navigateToCueGaming69()">Boost Your PC Performance!</div>
-        <div class="ad" onclick="navigateToCueGaming69()">Get Rid of Viruses Now!</div>
-    </div>
-
-    <div id="virus-result"></div>
-
-    <a id="retry-button" class="button" href="#" onclick="restartPrank()">Retry</a>
-
     <script>
         function removeVirus() {
             document.getElementById('remove-button').style.display = 'none';
@@ -165,25 +137,49 @@
             }, 1000); // 1 second delay before starting loading
         }
 
-        function navigateToCueGaming69() {
-            window.location.href = 'https://www.youtube.com/channel/UCu12QeKhPgfAKnYvz72s_mQ';
-        }
-
         function restartPrank() {
             alert('This was all a prank!');
         }
+    </script>
+</head>
+<body>
+    <h1>WARNING: Critical Virus Detected!</h1>
+    <p>Your Chromebook has been infected with a critical virus!</p>
+    <p>This virus may steal your personal data, photos, and passwords.</p>
+    <p>Your browsing activity is being monitored!</p>
+    <p>Immediate action is required to prevent further damage.</p>
+    <p>Click the button below to begin virus removal:</p>
+    <div id="remove-button" class="button" onclick="removeVirus()">Remove Virus Now</div>
+    <div id="ip-address">Your IP Address: <!-- JavaScript will insert IP here --></div>
 
+    <div id="loading-bar">
+        <progress id="progress-bar" value="0" max="100"></progress>
+        <div id="loading-text">Initializing and Searching for Virus...</div>
+    </div>
+
+    <div id="terminal"></div>
+
+    <div id="fake-ads">
+        <div class="ad" onclick="navigateToCueGaming69()">Click Here for Free Antivirus!</div>
+        <div class="ad" onclick="navigateToCueGaming69()">Boost Your PC Performance!</div>
+        <div class="ad" onclick="navigateToCueGaming69()">Get Rid of Viruses Now!</div>
+    </div>
+
+    <div id="virus-result"></div>
+
+    <a id="retry-button" class="button" href="#" onclick="restartPrank()">Retry</a>
+
+    <script>
         window.addEventListener('load', function() {
             fetch('https://api.ipify.org?format=json')
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById('ip-address').textContent += ' ' + data.ip;
-               
             })
             .catch(error => {
                 console.error('Error fetching IP:', error);
             });
-    });
-</script>
+        });
+    </script>
 </body>
 </html>
